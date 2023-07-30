@@ -56,13 +56,13 @@ final class ViewController: UIViewController {
        
         viewModel.$currentWeather
            .sink(receiveValue: {[weak self] currentWeather in
-            self?.temperatureLabel.text = currentWeather.main?.temp != nil ? "\(Int((currentWeather.main?.temp!)!)) ºC" : "incorrect city name"})
+               self?.temperatureLabel.text = currentWeather.main?.temp != nil ? "\(Int((currentWeather.main?.temp ?? 0))) ºC" : "incorrect city name"})
            .store(in: &cancellable)
         
         viewModel.$currentWeather
             .sink { [weak self] currentWeather in
                 self?.pressureLabel.text = currentWeather.main?.pressure != nil ?
-                "\(Int(Double((currentWeather.main?.pressure!)!) * 0.75))mm" : "no pressure"}
+                "\(Int(Double((currentWeather.main?.pressure ?? 0)) * 0.75))mm" : "no pressure"}
             .store(in: &cancellable)
             
     }

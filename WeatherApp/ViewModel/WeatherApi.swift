@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class WeatherAPI {
+final class WeatherAPI {
     static let shared = WeatherAPI()
     
     private let baseaseURL = "https://api.openweathermap.org/data/2.5/weather"

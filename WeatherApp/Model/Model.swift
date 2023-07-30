@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - WeatherDetail
-struct WeatherDetail: Codable {
+struct WeatherDetail: Codable { // all attributes for "future improvements" =)
     let coord: Coord?
     let weather: [Weather]?
     let base: String?
@@ -22,7 +22,7 @@ struct WeatherDetail: Codable {
     let name: String?
     let cod: Int?
     
-    static var placeholder: Self {
+    static var placeholder: Self { // mock data if catch error in request
         return WeatherDetail(coord: nil, weather: nil, base: nil, main: nil,
                            visibility: nil, wind: nil, clouds: nil, dt: nil,
                            sys: nil, id: nil, name: nil, cod: nil)
